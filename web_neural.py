@@ -1,7 +1,7 @@
 # Importing flask module in the project is mandatory
 # An object of Flask class is our WSGI application.
 import os
-from flask import Flask, flash, request, redirect, url_for, render_template
+from flask import Flask, flash, request, redirect, url_for, render_template, jsonify
 from werkzeug.utils import secure_filename
 import time
 
@@ -57,9 +57,17 @@ def uploaded_file(filename):
 # The route() function of the Flask class is a decorator,
 # which tells the application which URL should call
 # the associated function.
-@app.route('/hello')
-def hello_world():
-    return 'Hello World'
+@app.route('/test')
+def test():
+    data = {"sdf": 9, "dd": 10, "zhiming": "got it"}
+    return render_template("test.html", data=data)
+
+@app.route('/test/data')
+def test2():
+    data = {"sdf": 9, "dd": 10,  "zhiming": "got it"}
+    return jsonify(data)
+
+
 
 
 
@@ -68,7 +76,7 @@ def hello_world():
 if __name__ == '__main__':
     # run() method of Flask class runs the application
     # on the local development server.
-    app.run(host= '0.0.0.0', debug=True)
+    app.run(host='0.0.0.0', debug=True)
 
 
 
