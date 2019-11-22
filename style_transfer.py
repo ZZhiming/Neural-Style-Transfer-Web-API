@@ -29,7 +29,8 @@ def load_image(image_path, image_size=(400, 400), preserve_aspect_ratio=True):
 
 
 import tensorflow_hub
-m = tensorflow_hub.load("C:\\Users\\zhiming.zhang\\Downloads\\style_model")
+m = tensorflow_hub.load("./web_neural/")
+#m = tensorflow_hub.load("C:\\Users\\zhiming.zhang\\Downloads\\style_model")
 
 def get_stlyed(image_name):
     s = load_image("C:\\Users\\zhiming.zhang\\PycharmProjects\\test1\\web_style\\static\\uploads\\vangoh.jpg")
