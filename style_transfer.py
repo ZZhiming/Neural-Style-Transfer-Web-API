@@ -29,14 +29,16 @@ def load_image(image_path, image_size=(400, 400), preserve_aspect_ratio=True):
 
 
 import tensorflow_hub
-m = tensorflow_hub.load("./web_style")
+m = tensorflow_hub.load("./web_style/static/model/model")
 #m = tensorflow_hub.load("C:\\Users\\zhiming.zhang\\Downloads\\style_model")
 
 def get_stlyed(image_name):
-    s = load_image("C:\\Users\\zhiming.zhang\\PycharmProjects\\test1\\web_style\\static\\uploads\\vangoh.jpg")
-
+    s = load_image("./web_style/static/uploads/vangoh.jpg")
+    #s = load_image("C:\\Users\\zhiming.zhang\\PycharmProjects\\test1\\web_style\\static\\uploads\\vangoh.jpg")
     #c = load_image("C:\\Users\\zhiming.zhang\\PycharmProjects\\test1\\web_style\\static\\uploads\\hq.JPG")
-    c = load_image("C:\\Users\\zhiming.zhang\\PycharmProjects\\test1\\web_style\\static\\uploads\\" + image_name)
+    #c = load_image("C:\\Users\\zhiming.zhang\\PycharmProjects\\test1\\web_style\\static\\uploads\\" + image_name)
+    c = load_image("./web_style/static/uploads/" + image_name)
+
 
 
     outputs = m(tf.constant(c), tf.constant(s))

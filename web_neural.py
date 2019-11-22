@@ -11,7 +11,7 @@ import style_transfer as st
 # current module (__name__) as argument.
 #app = Flask(__name__)
 
-UPLOAD_FOLDER = "C:/Users/zhiming.zhang/PycharmProjects/test1/web_style/static/uploads"
+UPLOAD_FOLDER = "./web_style/static/uploads"
 ALLOWED_EXTENSIONS = {'txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'}
 
 app = Flask(__name__)
