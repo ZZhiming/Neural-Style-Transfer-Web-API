@@ -11,6 +11,11 @@ $(document).ready(function(){
 //  get_data();
 });
 
+function foo2(e){
+console.log("cool");
+console.log(e);
+}
+
 function get_data(){
      $.ajax({
         url: '/test/data',
