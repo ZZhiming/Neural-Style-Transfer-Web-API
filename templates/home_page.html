@@ -1,9 +1,42 @@
 <!doctype html>
 <script src="/static/js/jquery-3.4.1.min.js"></script>
 <script src="/static/js/select_style.js"></script>
+<style>
+.intro {
+  background-color: yellow;
+}
+
+.container {
+  position: relative;
+  text-align: center;
+  color: white;
+}
+
+.bottom-right {
+  position: absolute;
+  bottom: 50px;
+  right: 50px;
+}
+
+.overlay {
+  position: absolute;
+  bottom: 0;
+  background: rgb(0, 0, 0);
+  background: rgba(0, 0, 0, 0.5); /* Black see-through */
+  color: #f1f1f1;
+  width: 100%;
+  transition: .5s ease;
+  opacity:1;
+  color: white;
+  font-size: 20px;
+  padding: 20px;
+  text-align: center;
+}
+</style>
+
 <title>Art Style Transfer</title>
 
-<h1>Upload picture to style</h1>
+<h1 class="intro">Upload picture to style</h1>
 <form method=post enctype=multipart/form-data>
   <input type=file name=file>
   <input type=submit value=Upload>
@@ -24,8 +57,18 @@
       <h3 style="width:30%">Generated</h3>
   </div>
 
+
+  <div class="container" style="height:400px;width:1400px">
+    <img class="image" id="image6" src="static/uploads/star.jpg" style="height:90%;width:100%;" onclick="foo2(this)">
+        <div class="bottom-right">Selected</div>
+      </div>
+
   <div style="height:400px;width:1400px">
-    <img class="image" id="image1" src="static/uploads/star.jpg" style="height:90%;width:30%;" onclick="foo2(this)">
+     <div class="container" style="height:90%;width:30%;">
+    <img class="image" id="image1" src="static/uploads/star.jpg" style="height:90%;width:100%;" onclick="foo2(this)">
+
+        <div class="bottom-right">Selected</div>
+      </div>
       <img class = "image" id="image2" src="static/uploads/sf_bridge.jpg" style="height:90%;width:30%;">
       <img id="image3" src="static/uploads/ok.jpg" style="height:90%;width:30%;" onclick="foo2(this)">
   </div>
