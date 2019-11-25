@@ -16,8 +16,12 @@ var prior = null;
 function foo2(e){
 if(this.prior!=null){
  this.prior.style.opacity = 1
+ var de = document.getElementById(this.prior.id+"select");
+    de.style.display = "none";
 }
 e.style.opacity = 0.5;
+ var de2 = document.getElementById(e.id+"select");
+de2.style.display="inline";
 console.log("cool");
 console.log(e);
 this.prior = e;
