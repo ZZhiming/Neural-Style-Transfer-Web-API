@@ -29,7 +29,7 @@ def load_image(image_path, image_size=(400, 400), preserve_aspect_ratio=True):
 
 
 import tensorflow_hub
-m = tensorflow_hub.load("model")
+m = tensorflow_hub.load("style_model")
 #m = tensorflow_hub.load("C:\\Users\\zhiming.zhang\\Downloads\\style_model")
 
 def get_stlyed(image_name):
