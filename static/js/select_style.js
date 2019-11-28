@@ -1,5 +1,22 @@
 
 $(document).ready(function(){
+    var html = $('<div>Hello, you&#39;re awesome!</div>');
+    $("body").append(html);
+
+    var wrapper = $("#99");
+    console.log(container);
+
+    var container = $("<div>");
+    console.log(container)
+    container.addClass("tutorial");
+
+    var h1 = $("<h1>");
+    h1.text("laksdjfl");
+    h1.addClass("tutorial-heading");
+    container.append(h1);
+
+    wrapper.append(container);
+
    $( "#image1" ).click(function() {
   //alert( "Handler for .click() called." );
 
@@ -41,3 +58,32 @@ function get_data(){
         }
     });
 }
+
+var wrapper = $("#99");
+console.log(container);
+
+var container = $("<div>");
+console.log(container)
+container.addClass("tutorial");
+
+var h1 = $("<h1>");
+h1.text("laksdjfl");
+h1.addClass("tutorial-heading");
+container.append(h1);
+
+wrapper.append(container);
+
+var title = "Constructing HTML Elements";
+
+var html = [
+    '<div class="tutorial">',
+        '<h1 class="tutorial-heading">' + title + '<h1>',
+    '</div>'
+].join("\n");
+// html: '<div ...>\n<h1 ...>Constructing HTML Elements<h1>\n</div>'
+
+$("#99").append(html);
+console.log(title)
+var html = $('<div>Hello, you&#39;re awesome!</div>');
+$("body").append(html)
+//("body").append(wrapper);

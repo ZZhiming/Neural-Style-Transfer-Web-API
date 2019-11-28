@@ -77,6 +77,11 @@ def uploaded_file(filename):
     #return render_template("display_image.html", user_image = '/Users/syang24/PycharmProjects/test1/uploads/hq.JPG')
 
 
+@app.route('/create')
+def create_own():
+    return render_template("create_own.html")
+
+
 # The route() function of the Flask class is a decorator,
 # which tells the application which URL should call
 # the associated function.
