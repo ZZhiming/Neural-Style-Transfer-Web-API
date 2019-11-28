@@ -1,12 +1,26 @@
 
 $(document).ready(function(){
+
+//    var container_b = $("<div>");
+//    var container = $("<div>");
+//    container_b.append(container);
+//    container.addClass("upload-container");
+//    var html = '<form method=post enctype=multipart/form-data>';
+//    html+='<input type=file name=file>';
+//    html+='<input type=submit value=Upload>';
+//    html+='</form>';
+//    container.append(html);
+//    $("body").append(container_b);
+
+
+
     var html = $('<div>Hello, you&#39;re awesome!</div>');
     $("body").append(html);
 
     var wrapper = $("#99");
     console.log(container);
 
-    var container = $("<div>");
+    var container = $("<div style=\"display:inline-block\">");
     console.log(container)
     container.addClass("tutorial");
 
@@ -16,6 +30,13 @@ $(document).ready(function(){
     container.append(h1);
 
     wrapper.append(container);
+
+
+
+
+    $("#imgInp").change(function(){
+        readURL(this);
+    });
 
    $( "#image1" ).click(function() {
   //alert( "Handler for .click() called." );
@@ -28,6 +49,21 @@ $(document).ready(function(){
 //  //console.log(data.dd);
 //  get_data();
 });
+
+        function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                 var pi = document.getElementById("preview_image");
+
+                  pi.style.display='inline';
+                $('#preview_image').attr('src', e.target.result);
+            }
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
 
 var prior = null;
 function foo2(e){

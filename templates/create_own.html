@@ -7,6 +7,10 @@
   background-color: yellow;
 }
 
+.upload-container{
+    display: inline-block;
+}
+
 .container {
   position: relative;
   text-align: center;
@@ -24,6 +28,12 @@
   position: absolute;
   bottom: 50px;
   right: 50px;
+}
+
+.preview_image{
+    width:200px;
+    height:200px;
+    display:none;
 }
 
 .overlay {
@@ -47,12 +57,38 @@
 </head>
 <body>
 
-    <div id= 99 style="display:inline-block">
-        Let do this
+    <div id="photo_block" class="upload-container">
+        <div> Photo </div>
+        <form method=post enctype=multipart/form-data>
+          <input type=file name=file>
+          <input type=submit value=Upload>
+        </form>
     </div>
-    <div style="display:inline-block">
-        Let do this
+
+    <div id="style_block" class="upload-container">
+        <div> Style </div>
+        <form method=post enctype=multipart/form-data>
+          <input type=file name=file>
+          <input type=submit value=Upload>
+        </form>
     </div>
+
+    <form id="form1" >
+        <input type=file id="imgInp" />
+        <img class="preview_image" id="preview_image3" src="#"/>
+    </form>
+    <div class="preview_image" style="width:200px;height:200px">
+
+                <img class="preview_image" id="preview_image" src="#"/>
+
+    </div>
+
+    <!--<div id=99 style="display:inline-block">-->
+        <!--Let do this-->
+    <!--</div>-->
+    <!--<div style="display:inline-block">-->
+        <!--Let do this-->
+    <!--</div>-->
 
 </body>
 </html>
