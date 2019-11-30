@@ -53,7 +53,7 @@ def upload_style():
         if 'file' not in request.files:
             flash('No file part')
             return redirect(request.url)
-        file = request.files['file']
+        file = request.files['file_style']
         # if user does not select file, browser also
         # submit an empty part without filename
         if file.filename == '':
@@ -77,8 +77,34 @@ def uploaded_file(filename):
     #return render_template("display_image.html", user_image = '/Users/syang24/PycharmProjects/test1/uploads/hq.JPG')
 
 
-@app.route('/create')
+@app.route('/create', methods=['GET', 'POST'])
 def create_own():
+    print("received ... ")
+    if request.method == 'POST':
+        # check if the post request has the file part
+        if 'file2' not in request.files:
+            flash('No file part')
+            return redirect(request.url)
+        # file = request.files.getlist('file1')
+
+        file = request.files['file2']
+
+        r2 = request.form['hf']
+        print("hffff: ", r2)
+
+        fs = request.files
+        print(fs)
+        print(fs['file1'])
+
+        print("this is the files", file)
+        # if user does not select file, browser also
+        # submit an empty part without filename
+        if file.filename == '':
+            flash('No selected file')
+            return redirect(request.url)
+        if file and allowed_file(file.filename):
+            filename = secure_filename(file.filename)
+            file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
     return render_template("create_own.html")
 
 

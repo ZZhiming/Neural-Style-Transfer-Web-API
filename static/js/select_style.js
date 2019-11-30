@@ -31,7 +31,8 @@ $(document).ready(function(){
 
     wrapper.append(container);
 
-
+    //document.getElementById('id').value = **
+    $('#hf').attr('value', 'shanna');
 
 
     $("#imgInp").change(function(){
