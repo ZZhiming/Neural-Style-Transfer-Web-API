@@ -8,7 +8,8 @@
 }
 
 .upload-container{
-    display: inline-block;
+    position: relative;
+    <!--display: inline-block;-->
     font-size: 50px;
     color: dimgrey;
 }
@@ -29,6 +30,7 @@
 }
 
 .upload-container-style{
+    position: absolute;
     display: inline-block;
     font-size: 50px;
     color: dimgrey;
@@ -40,11 +42,17 @@
     font-size: 50px;
     color: dimgrey;
     min-width: 400px;
+    min-height: 620px;
 }
 
 .popular-style-container{
     color: dimgrey;
     min-width: 400px;
+    max-width: 900px;
+    max-height:500px;
+    overflow-y: scroll;
+    padding: 20px;
+    border-style: groove;
 }
 
 .input-style{
@@ -143,7 +151,7 @@
                 <input type=file name=style class="input-style">
             </div>
                 <input type='hidden' id="hf" name='hf' value=''>
-            <div><input type=submit value=Submit class="submit"></div>
+            <div style="margin-left:270px"><input type=submit value=Submit class="submit"></div>
         </form>
     </div>
 
