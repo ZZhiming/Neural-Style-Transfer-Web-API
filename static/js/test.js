@@ -10,7 +10,9 @@ function get_data(){
         url: '/test/data',
         success: function(data) {
             console.log('get info');
-            console.log(data.zhiming)
+            console.log(JSON.parse(data)[1])
+            //console.log(data.zhiming)
+            console.log('{{data|tojson}}')
 //            $('#info').html(JSON.stringify(data, null, '   '));
 //            $('#description').html(data['description']);
         }

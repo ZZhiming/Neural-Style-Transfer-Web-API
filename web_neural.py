@@ -3,6 +3,7 @@
 import os
 from flask import Flask, flash, request, redirect, url_for, render_template, jsonify
 from werkzeug.utils import secure_filename
+import json
 import time
 
 import style_transfer as st
@@ -119,8 +120,9 @@ def test():
 @app.route('/test/data')
 def test2():
     data = {"sdf": 9, "dd": 10,  "zhiming": "got it"}
-    return jsonify(data)
-
+    data2 = [1,2,33,44]
+    ##return jsonify(data)
+    return json.dumps(data2)
 
 
 
