@@ -106,7 +106,7 @@ def create_own():
         if file and allowed_file(file.filename):
             filename = secure_filename(file.filename)
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-    return render_template("create_own.html")
+    return render_template("create_own2.html")
 
 
 # The route() function of the Flask class is a decorator,

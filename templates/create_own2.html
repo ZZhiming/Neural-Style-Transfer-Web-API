@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<script src="/static/js/jquery-3.4.1.min.js"></script>
+<script src="/static/js/select_style.js"></script>
+<style>
+.intro {
+  background-color: yellow;
+}
+
+.upload-container{
+    display: inline-block;
+    font-size: 50px;
+    color: dimgrey;
+}
+
+
+.upload-container-style{
+    display: inline-block;
+    font-size: 50px;
+    color: dimgrey;
+    min-width:400px;
+}
+
+.upload-container-content{
+    display: inline-block;
+    font-size: 50px;
+    color: dimgrey;
+    min-width: 400px;
+}
+
+
+
+.input-style{
+    font-size: initial;
+}
+
+.submit{
+    color: white;
+    background-color: #3462a7;
+    height: 40px;
+    width: 150px;
+    font-size: x-large;
+}
+
+.container {
+  position: relative;
+  text-align: center;
+  color: white;
+}
+
+.select-font {
+    font-size: x-large;
+    color: #095bb1;
+    font-weight: bold;
+    display: none;
+}
+
+.bottom-right {
+  position: absolute;
+  bottom: 50px;
+  right: 50px;
+}
+
+.preview_image{
+    width:200px;
+    height:200px;
+    display:none;
+}
+
+.overlay {
+  position: absolute;
+  bottom: 0;
+  background: rgb(0, 0, 0);
+  background: rgba(0, 0, 0, 0.5); /* Black see-through */
+  color: #f1f1f1;
+  width: 100%;
+  transition: .5s ease;
+  opacity:1;
+  color: white;
+  font-size: 20px;
+  padding: 20px;
+  text-align: center;
+}
+</style>
+<head>
+    <meta charset="UTF-8">
+    <title>Create Artwork</title>
+</head>
+<body>
+
+
+    <div id="style_block" class="upload-container">
+        <form method=post enctype=multipart/form-data>
+            <div class="upload-container-content">
+                <div> Photo </div>
+                <input type=file name=content class="input-style">
+            </div>
+            <div class="upload-container-style">
+                <div> Style </div>
+                <input type=file name=style class="input-style">
+            </div>
+                <input type='hidden' id="hf" name='hf' value=''>
+            <div><input type=submit value=Submit class="submit"></div>
+        </form>
+    </div>
+
+
+</body>
+</html>
