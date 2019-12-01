@@ -13,6 +13,20 @@
     color: dimgrey;
 }
 
+.image-container{
+    position: relative;
+    display: inline-block;
+    max-width: 200px;
+    max-height: 200px;
+}
+
+.bottom-right {
+  font-size: x-large;
+  color: #0b2031;
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+}
 
 .upload-container-style{
     display: inline-block;
@@ -28,7 +42,10 @@
     min-width: 400px;
 }
 
-
+.popular-style-container{
+    color: dimgrey;
+    min-width: 400px;
+}
 
 .input-style{
     font-size: initial;
@@ -55,11 +72,6 @@
     display: none;
 }
 
-.bottom-right {
-  position: absolute;
-  bottom: 50px;
-  right: 50px;
-}
 
 .preview_image{
     width:200px;
@@ -97,6 +109,37 @@
             </div>
             <div class="upload-container-style">
                 <div> Style </div>
+                <div class="popular-style-container">
+
+                      <div class="image-container">
+                          <img class="image-container" id="image6" src="static/uploads/star.jpg" style="height:90%;width:90%;" onclick="foo2(this)">
+                          <div id="image6select" class="bottom-right">Selected</div>
+                      </div>
+
+                      <div class="image-container">
+                          <img class="image-container" id="image7" src="static/uploads/picasso.jpg" style="height:90%;width:90%;" onclick="foo2(this)">
+                          <div id="image7select" class="bottom-right">Selected</div>
+                      </div>
+
+
+                      <div class="image-container">
+                          <img class="image-container" id="image8" src="static/uploads/picasso.jpg" style="height:90%;width:90%;" onclick="foo2(this)">
+                          <div id="image8select" class="bottom-right">Selected</div>
+                      </div>
+
+
+                      <div class="image-container">
+                          <img class="image-container" id="image9" src="static/uploads/picasso.jpg" style="height:90%;width:90%;" onclick="foo2(this)">
+                          <div id="image9select" class="bottom-right">Selected</div>
+                      </div>
+
+
+                      <div class="image-container">
+                          <img class="image-container" id="image10" src="static/uploads/picasso.jpg" style="height:90%;width:90%;" onclick="foo2(this)">
+                          <div id="image10select" class="bottom-right">Selected</div>
+                      </div>
+
+                </div>
                 <input type=file name=style class="input-style">
             </div>
                 <input type='hidden' id="hf" name='hf' value=''>
