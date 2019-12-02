@@ -7,6 +7,22 @@
   background-color: yellow;
 }
 
+.tab-upload{
+    font-size: 25px;
+    background-size: cover;
+    background-color: white;
+    color: dimgray;
+    cursor: pointer;
+}
+
+.tab-style{
+    font-size: 25px;
+    background-size: cover;
+    background-color: #d2d2d2;
+    color: dimgray;
+    cursor: pointer;
+}
+
 .upload-container{
     position: relative;
     <!--display: inline-block;-->
@@ -19,6 +35,7 @@
     display: inline-block;
     max-width: 200px;
     max-height: 200px;
+    cursor: pointer;
 }
 
 .bottom-right {
@@ -66,6 +83,7 @@
     height: 40px;
     width: 150px;
     font-size: x-large;
+    cursor: pointer;
 }
 
 .container {
@@ -121,7 +139,12 @@
             </div>
             <div class="upload-container-style">
                 <div> Style </div>
-                <div class="popular-style-container">
+                <div>
+                  <button type="button" class="tab-style"  onclick="tab_click(this)">Popular Styles</button>
+                  <button type="button" class="tab-upload" onclick="tab_click(this)">Upload Style</button>
+                </div>
+
+                <div id="popular-style-container" class="popular-style-container">
 
                       <div class="image-container">
                           <img class="image-container" id="image6" src="static/uploads/star.jpg" style="height:90%;width:90%;" onclick="foo2(this)">
@@ -152,7 +175,7 @@
                       </div>
 
                 </div>
-                <input type=file name=style class="input-style">
+                <input id="upload-style-container" type=file name=style class="input-style" style="display:none">
             </div>
                 <input type='hidden' id="hf" name='hf' value=''>
             <div style="margin-left:270px"><input type=submit value=Submit class="submit"></div>

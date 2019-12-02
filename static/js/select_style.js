@@ -87,6 +87,20 @@ function foo2(e){
 
 }
 
+
+function tab_click(e){
+    console.log(e);
+    cname = e.getAttribute("class")
+    console.log(e.getAttribute("class"));
+    //e.style.display = "none";
+    var container = document.getElementById("popular-style-container");
+    container.style.display = "none";
+    var container = document.getElementById("upload-style-container");
+    container.style.display = "inline";
+    e.style["background-color"] = "#d2d2d2";
+}
+
+
 function get_data(){
      $.ajax({
         url: '/test/data',

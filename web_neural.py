@@ -130,6 +130,7 @@ def test2():
 
 # main driver function
 if __name__ == '__main__':
+    app.secret_key = 'aksldfkj'
     # run() method of Flask class runs the application
     # on the local development server.
     app.run(host='0.0.0.0', debug=True)
