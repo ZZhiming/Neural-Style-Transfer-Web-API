@@ -27,6 +27,7 @@
   position: absolute;
   bottom: 20px;
   right: 20px;
+  display: none;
 }
 
 .upload-container-style{
@@ -82,8 +83,8 @@
 
 
 .preview_image{
-    width:200px;
-    height:200px;
+    max-width:250px;
+    max-height:250px;
     display:none;
 }
 
@@ -113,7 +114,10 @@
         <form method=post enctype=multipart/form-data>
             <div class="upload-container-content">
                 <div> Photo </div>
-                <input type=file name=content class="input-style">
+                <input type=file id="imgInp" name=content class="input-style">
+                     <div style="max-width:250px;max-height:250px;">
+                        <img class="preview_image" id="preview_image" src="#"/>
+                     </div>
             </div>
             <div class="upload-container-style">
                 <div> Style </div>
@@ -143,7 +147,7 @@
 
 
                       <div class="image-container">
-                          <img class="image-container" id="image10" src="static/uploads/picasso.jpg" style="height:90%;width:90%;" onclick="foo2(this)">
+                          <img class="image-container" id="image10" fname="picasso" src="static/uploads/picasso.jpg" style="height:90%;width:90%;" onclick="foo2(this)">
                           <div id="image10select" class="bottom-right">Selected</div>
                       </div>
 

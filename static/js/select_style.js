@@ -81,6 +81,9 @@ function foo2(e){
     this.prior = e;
     var node = document.getElementById(e.id);
     console.log(node.offsetTop);
+    console.log("fname: ", e.getAttribute("fname"));
+    fname = e.getAttribute("fname");
+    $('#hf').attr('value', fname);
 
 }
 

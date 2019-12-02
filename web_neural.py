@@ -83,19 +83,19 @@ def create_own():
     print("received ... ")
     if request.method == 'POST':
         # check if the post request has the file part
-        if 'file2' not in request.files:
+        if 'content' not in request.files:
             flash('No file part')
             return redirect(request.url)
         # file = request.files.getlist('file1')
 
-        file = request.files['file2']
+        file = request.files['content']
 
         r2 = request.form['hf']
         print("hffff: ", r2)
 
         fs = request.files
         print(fs)
-        print(fs['file1'])
+        print(fs['content'])
 
         print("this is the files", file)
         # if user does not select file, browser also
