@@ -1,5 +1,44 @@
 
 $(document).ready(function(){
+
+//    var container_b = $("<div>");
+//    var container = $("<div>");
+//    container_b.append(container);
+//    container.addClass("upload-container");
+//    var html = '<form method=post enctype=multipart/form-data>';
+//    html+='<input type=file name=file>';
+//    html+='<input type=submit value=Upload>';
+//    html+='</form>';
+//    container.append(html);
+//    $("body").append(container_b);
+
+
+
+    var html = $('<div>Hello, you&#39;re awesome!</div>');
+    $("body").append(html);
+
+    var wrapper = $("#99");
+    console.log(container);
+
+    var container = $("<div style=\"display:inline-block\">");
+    console.log(container)
+    container.addClass("tutorial");
+
+    var h1 = $("<h1>");
+    h1.text("laksdjfl");
+    h1.addClass("tutorial-heading");
+    container.append(h1);
+
+    wrapper.append(container);
+
+    //document.getElementById('id').value = **
+    $('#hf').attr('value', 'shanna');
+
+
+    $("#imgInp").change(function(){
+        readURL(this);
+    });
+
    $( "#image1" ).click(function() {
   //alert( "Handler for .click() called." );
 
@@ -12,19 +51,68 @@ $(document).ready(function(){
 //  get_data();
 });
 
+        function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                 var pi = document.getElementById("preview_image");
+
+                  pi.style.display='inline';
+                $('#preview_image').attr('src', e.target.result);
+            }
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+
 var prior = null;
 function foo2(e){
-if(this.prior!=null){
- this.prior.style.opacity = 1
-}
-e.style.opacity = 0.5;
-console.log("cool");
-console.log(e);
-this.prior = e;
-var node = document.getElementById(e.id);
-console.log(node.offsetTop);
+    if(this.prior!=null){
+     this.prior.style.opacity = 1
+     var de = document.getElementById(this.prior.id+"select");
+        de.style.display = "none";
+    }
+    e.style.opacity = 0.5;
+     var de2 = document.getElementById(e.id+"select");
+    de2.style.display="inline";
+    console.log("cool");
+    console.log(e);
+    this.prior = e;
+    var node = document.getElementById(e.id);
+    console.log(node.offsetTop);
+    console.log("fname: ", e.getAttribute("fname"));
+    fname = e.getAttribute("fname");
+    $('#hf').attr('value', fname);
 
 }
+
+var prior_tab = null;
+function tab_click(e){
+    cname = e.getAttribute("cname");
+    if(this.prior_tab!=null){
+        cname = this.prior_tab.getAttribute("cname")
+        console.log("cname", cname)
+        var container = document.getElementById(cname);
+        container.style.display = "none";
+        this.prior_tab.style["background-color"] = "white";
+    }else if(cname=="upload-style-container"){
+        var button = document.getElementById("popular-button");
+        button.style["background-color"] = "white";
+    }
+    prior_tab = e;
+
+    console.log(e);
+    cname = e.getAttribute("class")
+    console.log(e.getAttribute("class"));
+    //e.style.display = "none";
+    var container = document.getElementById("popular-style-container");
+    container.style.display = "none";
+    var container = document.getElementById("upload-style-container");
+    container.style.display = "inline";
+    e.style["background-color"] = "#d2d2d2";
+}
+
 
 function get_data(){
      $.ajax({
@@ -37,3 +125,32 @@ function get_data(){
         }
     });
 }
+
+var wrapper = $("#99");
+console.log(container);
+
+var container = $("<div>");
+console.log(container)
+container.addClass("tutorial");
+
+var h1 = $("<h1>");
+h1.text("laksdjfl");
+h1.addClass("tutorial-heading");
+container.append(h1);
+
+wrapper.append(container);
+
+var title = "Constructing HTML Elements";
+
+var html = [
+    '<div class="tutorial">',
+        '<h1 class="tutorial-heading">' + title + '<h1>',
+    '</div>'
+].join("\n");
+// html: '<div ...>\n<h1 ...>Constructing HTML Elements<h1>\n</div>'
+
+$("#99").append(html);
+console.log(title)
+var html = $('<div>Hello, you&#39;re awesome!</div>');
+$("body").append(html)
+//("body").append(wrapper);

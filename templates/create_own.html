@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<script src="/static/js/jquery-3.4.1.min.js"></script>
+<script src="/static/js/select_style.js"></script>
+<style>
+.intro {
+  background-color: yellow;
+}
+
+.upload-container{
+    display: inline-block;
+}
+
+.container {
+  position: relative;
+  text-align: center;
+  color: white;
+}
+
+.select-font {
+    font-size: x-large;
+    color: #095bb1;
+    font-weight: bold;
+    display: none;
+}
+
+.bottom-right {
+  position: absolute;
+  bottom: 50px;
+  right: 50px;
+}
+
+.preview_image{
+    width:200px;
+    height:200px;
+    display:none;
+}
+
+.overlay {
+  position: absolute;
+  bottom: 0;
+  background: rgb(0, 0, 0);
+  background: rgba(0, 0, 0, 0.5); /* Black see-through */
+  color: #f1f1f1;
+  width: 100%;
+  transition: .5s ease;
+  opacity:1;
+  color: white;
+  font-size: 20px;
+  padding: 20px;
+  text-align: center;
+}
+</style>
+<head>
+    <meta charset="UTF-8">
+    <title>Create Artwork</title>
+</head>
+<body>
+
+    <div id="photo_block" class="upload-container">
+        <div> Photo </div>
+        <form method=post enctype=multipart/form-data>
+          <input type=file name=file>
+          <input type=submit value=Upload>
+        </form>
+    </div>
+
+    <div id="style_block" class="upload-container">
+        <div> Style </div>
+        <form method=post enctype=multipart/form-data>
+          <input type=file name=file1>
+          <input type=file name=file2 style="display:inline">
+          <input type='hidden' id="hf" name='hf' value=''>
+            <div><input type=submit value=Upload></div>
+        </form>
+    </div>
+
+    <form id="form1" >
+        <input type=file id="imgInp" />
+        <img class="preview_image" id="preview_image2" src="#"/>
+            <div style="width:200px;height:200px;">
+
+                <img class="preview_image" id="preview_image" src="#"/>
+
+            </div>
+    </form>
+    <div class="preview_image" style="width:200px;height:200px;display:inline">
+
+                <img class="preview_image" id="preview_image3" src="#"/>
+
+    </div>
+
+    <!--<div id=99 style="display:inline-block">-->
+        <!--Let do this-->
+    <!--</div>-->
+    <!--<div style="display:inline-block">-->
+        <!--Let do this-->
+    <!--</div>-->
+
+</body>
+</html>
