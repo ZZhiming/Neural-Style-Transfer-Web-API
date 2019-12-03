@@ -104,6 +104,7 @@ function foo2(e){
     console.log("fname: ", e.getAttribute("fname"));
     fname = e.getAttribute("fname");
     $('#hf').attr('value', fname);
+    $("#upload-style-container").val("");
 
 }
 
