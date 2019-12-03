@@ -13,9 +13,9 @@ $(document).ready(function(){
 //    $("body").append(container_b);
 
 
-
-    var html = $('<div>Hello, you&#39;re awesome!</div>');
-    $("body").append(html);
+//
+//    var html = $('<div>Hello, you&#39;re awesome!</div>');
+//    $("body").append(html);
 
     var wrapper = $("#99");
     console.log(container);
@@ -32,11 +32,31 @@ $(document).ready(function(){
     wrapper.append(container);
 
     //document.getElementById('id').value = **
-    $('#hf').attr('value', 'shanna');
+    //$('#hf').attr('value', 'shanna');
 
+    $('#upload_form').submit(function () {
+        var name2 = $('#hf').attr('value');
+        console.log("name2: ", name2);
+        var name = $("#upload-style-container").val();
+        //var name = $("#upload-style-container").attr('value');
+        console.log("name: ", name);
+        console.log($("#upload-style-container"));
+        var name3 = $('#imgInp').val();
+
+        //var name3 = $('#imgInp').attr('value');
+        console.log("name3", name3);
+        if(((name=='')&(name2==''))|(name3=='')){
+            alert("Please Upload or Select!");
+            return false;
+        }
+    });
 
     $("#imgInp").change(function(){
-        readURL(this);
+        readURL(this, "preview_image");
+    });
+
+    $("#upload-style-container").change(function(){
+        readURL(this, "preview_image2");
     });
 
    $( "#image1" ).click(function() {
@@ -51,15 +71,15 @@ $(document).ready(function(){
 //  get_data();
 });
 
-        function readURL(input) {
+        function readURL(input, id) {
         if (input.files && input.files[0]) {
             var reader = new FileReader();
 
             reader.onload = function (e) {
-                 var pi = document.getElementById("preview_image");
+                 var pi = document.getElementById(id);
 
                   pi.style.display='inline';
-                $('#preview_image').attr('src', e.target.result);
+                $('#'+id).attr('src', e.target.result);
             }
 
             reader.readAsDataURL(input.files[0]);
@@ -88,28 +108,32 @@ function foo2(e){
 }
 
 var prior_tab = null;
+var cd = {"popular-style-container":"upload-style-container", "upload-style-container":"popular-style-container"};
 function tab_click(e){
-    cname = e.getAttribute("cname");
+    var cname = e.getAttribute("cname");
     if(this.prior_tab!=null){
-        cname = this.prior_tab.getAttribute("cname")
-        console.log("cname", cname)
-        var container = document.getElementById(cname);
+        var cname2 = this.prior_tab.getAttribute("cname")
+        console.log("cname", cname2)
+        var container = document.getElementById(cname2);
         container.style.display = "none";
         this.prior_tab.style["background-color"] = "white";
-    }else if(cname=="upload-style-container"){
+    }else if((this.prior_tab==null)&(cname=="upload-style-container")){
         var button = document.getElementById("popular-button");
         button.style["background-color"] = "white";
     }
     prior_tab = e;
-
+    console.log("ttt: ", this.cd["popular-style-container"]);
     console.log(e);
-    cname = e.getAttribute("class")
+    //cname = e.getAttribute("class")
     console.log(e.getAttribute("class"));
     //e.style.display = "none";
-    var container = document.getElementById("popular-style-container");
+    //var container = document.getElementById("popular-style-container");
+    console.log("this cd: ", this.cd[cname]);
+    var container = document.getElementById(this.cd[cname]);
     container.style.display = "none";
-    var container = document.getElementById("upload-style-container");
-    container.style.display = "inline";
+    var container = document.getElementById(cname);
+    //var container = document.getElementById("upload-style-container");
+    container.style.display = "inline-block";
     e.style["background-color"] = "#d2d2d2";
 }
 
@@ -151,6 +175,6 @@ var html = [
 
 $("#99").append(html);
 console.log(title)
-var html = $('<div>Hello, you&#39;re awesome!</div>');
-$("body").append(html)
+//var html = $('<div>Hello, you&#39;re awesome!</div>');
+//$("body").append(html)
 //("body").append(wrapper);

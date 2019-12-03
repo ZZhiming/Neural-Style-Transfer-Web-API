@@ -129,10 +129,10 @@
 
 
     <div id="style_block" class="upload-container">
-        <form method=post enctype=multipart/form-data>
+        <form id="upload_form" method=post enctype=multipart/form-data>
             <div class="upload-container-content">
                 <div> Photo </div>
-                <input type=file id="imgInp" name=content class="input-style">
+                <input type=file id="imgInp" name=content class="input-style" value="">
                      <div style="max-width:250px;max-height:250px;">
                         <img class="preview_image" id="preview_image" src="#"/>
                      </div>
@@ -170,12 +170,15 @@
 
 
                       <div class="image-container">
-                          <img class="image-container" id="image10" fname="picasso" src="static/uploads/picasso.jpg" style="height:90%;width:90%;" onclick="foo2(this)">
+                          <img class="image-container" id="image10" fname="picasso.jpg" src="static/uploads/picasso.jpg" style="height:90%;width:90%;" onclick="foo2(this)">
                           <div id="image10select" class="bottom-right">Selected</div>
                       </div>
 
                 </div>
-                <input id="upload-style-container" type=file name=style class="input-style" style="display:none">
+                <input id="upload-style-container" type=file name=style22 class="input-style" style="display:none" value="">
+                    <div style="max-width:250px;max-height:250px;">
+                        <img class="preview_image" id="preview_image2" src="#"/>
+                    </div>
             </div>
                 <input type='hidden' id="hf" name='hf' value=''>
             <div style="margin-left:270px"><input type=submit value=Submit class="submit"></div>

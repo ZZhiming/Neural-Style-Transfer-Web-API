@@ -89,9 +89,18 @@ def create_own():
         # file = request.files.getlist('file1')
 
         file = request.files['content']
+        print("content ......: ", file)
 
-        r2 = request.form['hf']
-        print("hffff: ", r2)
+        filename2 = request.form['hf']
+        print("hffff: ", filename2)
+
+        if 'style22' in request.files:
+            file2 = request.files['style22']
+            print("content ......: ", file2)
+            filename2 = secure_filename(file2.filename)
+            file2.save(os.path.join(app.config['UPLOAD_FOLDER'], filename2))
+            print("fileeeeeeeeeeeeeeeeeee: ", filename2)
+
 
         fs = request.files
         print(fs)
@@ -106,6 +115,10 @@ def create_own():
         if file and allowed_file(file.filename):
             filename = secure_filename(file.filename)
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+            st.get_stlyed(filename, filename2)
+            #time.sleep(20)
+            return redirect(url_for('uploaded_file',
+                                    filename=filename))
     return render_template("create_own2.html")
 
 

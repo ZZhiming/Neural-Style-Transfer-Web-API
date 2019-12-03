@@ -32,12 +32,14 @@ import tensorflow_hub
 m = tensorflow_hub.load("style_model")
 #m = tensorflow_hub.load("C:\\Users\\zhiming.zhang\\Downloads\\style_model")
 
-def get_stlyed(image_name):
-    s = load_image("./web_style/static/uploads/picasso.jpg")
+def get_stlyed(cimage_name, simage_name):
+    #s = load_image("./web_style/static/uploads/picasso.jpg")
+    s = load_image("./web_style/static/uploads/" + simage_name)
+
     #s = load_image("C:\\Users\\zhiming.zhang\\PycharmProjects\\test1\\web_style\\static\\uploads\\vangoh.jpg")
     #c = load_image("C:\\Users\\zhiming.zhang\\PycharmProjects\\test1\\web_style\\static\\uploads\\hq.JPG")
     #c = load_image("C:\\Users\\zhiming.zhang\\PycharmProjects\\test1\\web_style\\static\\uploads\\" + image_name)
-    c = load_image("./web_style/static/uploads/" + image_name)
+    c = load_image("./web_style/static/uploads/" + cimage_name)
 
 
 
