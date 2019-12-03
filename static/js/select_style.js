@@ -87,8 +87,21 @@ function foo2(e){
 
 }
 
-
+var prior_tab = null;
 function tab_click(e){
+    cname = e.getAttribute("cname");
+    if(this.prior_tab!=null){
+        cname = this.prior_tab.getAttribute("cname")
+        console.log("cname", cname)
+        var container = document.getElementById(cname);
+        container.style.display = "none";
+        this.prior_tab.style["background-color"] = "white";
+    }else if(cname=="upload-style-container"){
+        var button = document.getElementById("popular-button");
+        button.style["background-color"] = "white";
+    }
+    prior_tab = e;
+
     console.log(e);
     cname = e.getAttribute("class")
     console.log(e.getAttribute("class"));
