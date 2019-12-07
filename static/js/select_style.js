@@ -138,6 +138,9 @@ function tab_click(e){
     e.style["background-color"] = "#d2d2d2";
 }
 
+function create_click(e){
+    location.replace("http://192.168.148.21:5000/create")
+}
 
 function get_data(){
      $.ajax({

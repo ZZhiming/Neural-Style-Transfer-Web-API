@@ -44,7 +44,7 @@ def upload_file():
             #time.sleep(20)
             return redirect(url_for('uploaded_file',
                                     filename=filename))
-    return render_template("home_page.html")
+    return render_template("home_page2.html")
 
 @app.route('/', methods=['GET', 'POST'])
 def upload_style():
