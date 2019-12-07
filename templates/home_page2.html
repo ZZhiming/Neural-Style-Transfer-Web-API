@@ -1,0 +1,157 @@
+<!doctype html>
+<script src="/static/js/jquery-3.4.1.min.js"></script>
+<script src="/static/js/select_style.js"></script>
+<style>
+.intro {
+    font-size: 50px;
+    color: dimgrey;
+    font-weight: normal;
+    text-align: center;
+    padding:20px;
+}
+
+.button-style{
+    position: relative;
+    top: 30px;
+    left: 44%;
+    background-color: #2c3e8c;
+    height: 40px;
+    width: 200px;
+    font-size: x-large;
+    color: white;
+}
+
+.container {
+  position: relative;
+  text-align: center;
+  color: white;
+}
+
+.select-font {
+    font-size: x-large;
+    color: #095bb1;
+    font-weight: bold;
+    display: none;
+}
+
+.bottom-right {
+  position: absolute;
+  bottom: 50px;
+  right: 50px;
+}
+
+.overlay {
+  position: absolute;
+  bottom: 0;
+  background: rgb(0, 0, 0);
+  background: rgba(0, 0, 0, 0.5); /* Black see-through */
+  color: #f1f1f1;
+  width: 100%;
+  transition: .5s ease;
+  opacity:1;
+  color: white;
+  font-size: 20px;
+  padding: 20px;
+  text-align: center;
+}
+</style>
+
+<title>Art Style Transfer</title>
+
+<div style="height:300px;background-image: url('static/uploads/monet_background.jpg');">
+    <h1 class="intro">TURN PHOTOS INTO ART</h1>
+    <button type="button" class="button-style" onclick="create_click(this)">Create Your Own</button>
+</div>
+
+<h1 class="intro" style="padding:0px;margin-bottom:-10px;text-align:left;margin-left:20px;">Examples</h1>
+
+<div style="height:650px;width:420px;padding:20px;display:inline-block">
+  <div style="height:400px;width:400px">
+    <img src="static/uploads/hq_monet.jpg" style="height:100%;width:100%;">
+  </div>
+  <div style="height:200px;width:400px;padding:10px">
+      <img src="static/uploads/hq.jpg" style="height:100%;width:40%;margin-right:10px">
+      <img src="static/uploads/monet_impression_sunrise.jpg" style="height:100%;width:40%;">
+  </div>
+    <div style="text-align:center;margin-top:0px;">(Picture: CA HQ,   Art: Sunrise by Monet)</div>
+</div>
+
+<div style="height:650px;width:420px;padding:20px;display:inline-block">
+  <div style="height:400px;width:400px">
+    <img src="static/uploads/boat2.jpg" style="height:100%;width:100%;">
+  </div>
+  <div style="height:200px;width:400px;padding:10px">
+      <img src="static/uploads/boat.jpg" style="height:100%;width:40%;margin-right:10px">
+      <img src="static/uploads/wave.jpg" style="height:100%;width:40%;">
+  </div>
+    <div style="text-align:center;margin-top:0px;">(Picture: Boat,   Art: The Great Wave by Hokusai)</div>
+</div>
+
+<div style="height:650px;width:420px;padding:20px;display:inline-block">
+  <div style="height:400px;width:400px">
+    <img src="static/uploads/girl2.jpg" style="height:100%;width:100%;">
+  </div>
+  <div style="height:200px;width:400px;padding:10px">
+      <img src="static/uploads/girl.jpg" style="height:100%;width:40%;margin-right:10px">
+      <img src="static/uploads/vangoh.jpg" style="height:100%;width:40%;">
+  </div>
+    <div style="text-align:center;margin-top:0px;">(Picture: Portrait,   Art: Self Portrait by Van Gogh)</div>
+</div>
+
+<div style="height:650px;width:420px;padding:20px;display:inline-block">
+  <div style="height:400px;width:400px">
+    <img src="static/uploads/garrett2.jpg" style="height:100%;width:100%;">
+  </div>
+  <div style="height:200px;width:400px;padding:10px">
+      <img src="static/uploads/garret.jpg" style="height:100%;width:40%;margin-right:10px">
+      <img src="static/uploads/stone.jpg" style="height:100%;width:40%;">
+  </div>
+    <div style="text-align:center;margin-top:0px;">(Picture: Garrett, Art: Stone Wall)</div>
+</div>
+
+<div style="height:650px;width:420px;padding:20px;display:inline-block">
+  <div style="height:400px;width:400px">
+    <img src="static/uploads/cat2.jpg" style="height:100%;width:100%;">
+  </div>
+  <div style="height:200px;width:400px;padding:10px">
+      <img src="static/uploads/garrett_cat.jpg" style="height:100%;width:40%;margin-right:10px">
+      <img src="static/uploads/abstract_wk.jpg" style="height:100%;width:40%;">
+  </div>
+    <div style="text-align:center;margin-top:0px;">(Picture: Garrett's Cat, Art: Expression by Wassily Kandinsky)</div>
+</div>
+
+<div style="height:650px;width:420px;padding:20px;display:inline-block">
+  <div style="height:400px;width:400px">
+    <img src="static/uploads/raleigh2.jpg" style="height:100%;width:100%;">
+  </div>
+  <div style="height:200px;width:400px;padding:10px">
+      <img src="static/uploads/raleigh.jpeg" style="height:100%;width:40%;margin-right:10px">
+      <img src="static/uploads/star.jpg" style="height:100%;width:40%;">
+  </div>
+    <div style="text-align:center;margin-top:0px;">(Picture: Raleigh,   Art: Starry Night by Van Gogh)</div>
+</div>
+
+
+
+<div style="height:650px;width:420px;padding:20px;display:inline-block">
+  <div style="height:400px;width:400px">
+    <img src="static/uploads/starwar2.jpg" style="height:100%;width:100%;">
+  </div>
+  <div style="height:200px;width:400px;padding:10px">
+      <img src="static/uploads/starwars1.jpeg" style="height:100%;width:40%;margin-right:10px">
+      <img src="static/uploads/mudan.jpg" style="height:100%;width:40%;">
+  </div>
+    <div style="text-align:center;margin-top:0px;">(Picture: Stormtrooper ,   Art: Mudan Flower)</div>
+</div>
+
+<div style="height:650px;width:420px;padding:20px;display:inline-block">
+  <div style="height:400px;width:400px">
+    <img src="static/uploads/trump_wall.jpg" style="height:100%;width:100%;">
+  </div>
+  <div style="height:200px;width:400px;padding:10px">
+      <img src="static/uploads/trump.jpg" style="height:100%;width:40%;margin-right:10px">
+      <img src="static/uploads/stone.jpg" style="height:100%;width:40%;">
+  </div>
+    <div style="text-align:center;margin-top:0px;">(Picture: Trump ,   Art: Stone Wall)</div>
+</div>
+
