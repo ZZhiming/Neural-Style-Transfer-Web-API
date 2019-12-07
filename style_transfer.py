@@ -20,7 +20,7 @@ def load_image(image_path, image_size=(400, 400), preserve_aspect_ratio=True):
     if img.max() > 1.0:
         img = img / 255.
     if len(img.shape) == 3:
-        img = tf.stack([img, img, img], axis=-1)
+        img = tf.stack([img, img, img], axis=-1).numpy()
     img = crop_center(img)
     img = tf.image.resize(img, image_size, preserve_aspect_ratio=True)
     return img
