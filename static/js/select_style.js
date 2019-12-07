@@ -64,6 +64,8 @@ $(document).ready(function(){
 
     });
 
+
+
 //  $(#image1).onclick
 //  $(":image").css("background-color", "red");
 //  console.log("testing");
@@ -139,7 +141,10 @@ function tab_click(e){
 }
 
 function create_click(e){
-    location.replace("http://192.168.148.21:5000/create")
+    //location.replace("http://192.168.148.21:5000/create")
+    //window.location.href="sample.html";
+    console.log("test");
+
 }
 
 function get_data(){

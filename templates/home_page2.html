@@ -19,6 +19,8 @@
     width: 200px;
     font-size: x-large;
     color: white;
+    text-decoration: none;
+    padding: 10px;
 }
 
 .container {
@@ -60,7 +62,7 @@
 
 <div style="height:300px;background-image: url('static/uploads/monet_background.jpg');">
     <h1 class="intro">TURN PHOTOS INTO ART</h1>
-    <button type="button" class="button-style" onclick="create_click(this)">Create Your Own</button>
+    <a href="{{ url_for('create_own') }}" id="create_button" type="button" class="button-style" onclick="create_click(this)">Create Your Own</a>
 </div>
 
 <h1 class="intro" style="padding:0px;margin-bottom:-10px;text-align:left;margin-left:20px;">Examples</h1>
