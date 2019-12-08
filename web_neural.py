@@ -134,10 +134,19 @@ def test():
 def test2():
     data = {"sdf": 9, "dd": 10,  "zhiming": "got it"}
     data2 = [1,2,33,44]
-    ##return jsonify(data)
-    return json.dumps(data2)
+    return jsonify(data)
+    # this one works for lists
+    #return json.dumps(data2)
 
 
+@app.route('/getstyles')
+def get_styles():
+    styles = os.listdir("./web_neural/web_style/static/styles")
+    data = {"sdf": 9, "dd": 10,  "zhiming": "got it"}
+    data2 = [1,2,33,44]
+    return jsonify(data)
+    # this one works for lists
+    #return json.dumps(data2)
 
 
 

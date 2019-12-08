@@ -13,9 +13,22 @@ $(document).ready(function(){
 //    $("body").append(container_b);
 
 
-//
-//    var html = $('<div>Hello, you&#39;re awesome!</div>');
-//    $("body").append(html);
+     get_data();
+    //var html = $('<div>Hello, you&#39;re awesome!</div>');
+        //$("body").append(html);
+
+
+    var html = '<div style="height:650px;width:420px;padding:20px;display:inline-block">';
+          html += '<div style="height:400px;width:400px">';
+           html +=' <img src="static/uploads/starwar2.jpg" style="height:100%;width:100%;">';
+          html+='</div>';
+          html+='<div style="height:200px;width:400px;padding:10px">';
+              html+='<img src="static/uploads/starwars1.jpeg" style="height:100%;width:40%;margin-right:10px">';
+             html+=' <img src="static/uploads/mudan.jpg" style="height:100%;width:40%;">';
+          html+='</div>';
+            html+='<div style="text-align:center;margin-top:0px;">(Picture: Stormtrooper ,   Art: Mudan Flower)</div>';
+         html+='</div>';
+    $("body").append(html);
 
     var wrapper = $("#99");
     console.log(container);
@@ -152,7 +165,7 @@ function get_data(){
         url: '/test/data',
         success: function(data) {
             console.log('get info');
-            console.log(data.zhiming)
+            console.log(data.zhiming);
 //            $('#info').html(JSON.stringify(data, null, '   '));
 //            $('#description').html(data['description']);
         }
