@@ -16,19 +16,20 @@ $(document).ready(function(){
      get_data();
     //var html = $('<div>Hello, you&#39;re awesome!</div>');
         //$("body").append(html);
+    //data = get_styles();
+    //console.log("ajax return : ", data);
 
-
-    var html = '<div style="height:650px;width:420px;padding:20px;display:inline-block">';
-          html += '<div style="height:400px;width:400px">';
-           html +=' <img src="static/uploads/starwar2.jpg" style="height:100%;width:100%;">';
-          html+='</div>';
-          html+='<div style="height:200px;width:400px;padding:10px">';
-              html+='<img src="static/uploads/starwars1.jpeg" style="height:100%;width:40%;margin-right:10px">';
-             html+=' <img src="static/uploads/mudan.jpg" style="height:100%;width:40%;">';
-          html+='</div>';
-            html+='<div style="text-align:center;margin-top:0px;">(Picture: Stormtrooper ,   Art: Mudan Flower)</div>';
-         html+='</div>';
-    $("body").append(html);
+//    var html = '<div style="height:650px;width:420px;padding:20px;display:inline-block">';
+//          html += '<div style="height:400px;width:400px">';
+//           html +=' <img src="static/uploads/starwar2.jpg" style="height:100%;width:100%;">';
+//          html+='</div>';
+//          html+='<div style="height:200px;width:400px;padding:10px">';
+//              html+='<img src="static/uploads/starwars1.jpeg" style="height:100%;width:40%;margin-right:10px">';
+//             html+=' <img src="static/uploads/mudan.jpg" style="height:100%;width:40%;">';
+//          html+='</div>';
+//            html+='<div style="text-align:center;margin-top:0px;">(Picture: Stormtrooper ,   Art: Mudan Flower)</div>';
+//         html+='</div>';
+//    $("body").append(html);
 
     var wrapper = $("#99");
     console.log(container);
@@ -158,6 +159,34 @@ function create_click(e){
     //window.location.href="sample.html";
     console.log("test");
 
+}
+
+
+function get_styles(){
+     $.ajax({
+        url: '/getstyles',
+        success: function(data) {
+            console.log('get info');
+            console.log(data);
+             e = JSON.parse(data);
+             console.log(e[1]);
+                var html = '<div style="height:650px;width:420px;padding:20px;display:inline-block">';
+          html += '<div style="height:400px;width:400px">';
+           html +=' <img src="static/uploads/' + e[1]['name'] +'" style="height:100%;width:100%;">';
+          html+='</div>';
+          html+='<div style="height:200px;width:400px;padding:10px">';
+              html+='<img src="static/uploads/starwars1.jpeg" style="height:100%;width:40%;margin-right:10px">';
+             html+=' <img src="static/uploads/mudan.jpg" style="height:100%;width:40%;">';
+          html+='</div>';
+            html+='<div style="text-align:center;margin-top:0px;">(Picture: Stormtrooper ,   Art: Mudan Flower)</div>';
+         html+='</div>';
+        $("body").append(html);
+
+//            $('#info').html(JSON.stringify(data, null, '   '));
+//            $('#description').html(data['description']);
+            return data;
+        }
+    });
 }
 
 function get_data(){

@@ -7,6 +7,7 @@ import json
 import time
 
 import style_transfer as st
+import image_model as im
 
 # Flask constructor takes the name of
 # current module (__name__) as argument.
@@ -141,12 +142,13 @@ def test2():
 
 @app.route('/getstyles')
 def get_styles():
-    styles = os.listdir("./web_neural/web_style/static/styles")
-    data = {"sdf": 9, "dd": 10,  "zhiming": "got it"}
-    data2 = [1,2,33,44]
-    return jsonify(data)
+    im_object = im.ImageModel()
+    data = im_object.images
+    #data = {"sdf": 9, "dd": 10,  "zhiming": "got it"}
+    #data2 = [1,2,33,44]
+    #return jsonify(data)
     # this one works for lists
-    #return json.dumps(data2)
+    return json.dumps(data)
 
 
 
