@@ -9,9 +9,6 @@ import time
 import style_transfer as st
 import image_model as im
 
-# Flask constructor takes the name of
-# current module (__name__) as argument.
-#app = Flask(__name__)
 
 UPLOAD_FOLDER = "./web_style/static/uploads"
 ALLOWED_EXTENSIONS = {'txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'}
@@ -24,59 +21,24 @@ def allowed_file(filename):
     return '.' in filename and \
            filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
+
 @app.route('/', methods=['GET', 'POST'])
-def upload_file():
-    print("received ... ")
-    if request.method == 'POST':
-        # check if the post request has the file part
-        if 'file' not in request.files:
-            flash('No file part')
-            return redirect(request.url)
-        file = request.files['file']
-        # if user does not select file, browser also
-        # submit an empty part without filename
-        if file.filename == '':
-            flash('No selected file')
-            return redirect(request.url)
-        if file and allowed_file(file.filename):
-            filename = secure_filename(file.filename)
-            file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-            st.get_stlyed(filename)
-            #time.sleep(20)
-            return redirect(url_for('uploaded_file',
-                                    filename=filename))
+def home_page():
     return render_template("home_page2.html")
 
-@app.route('/', methods=['GET', 'POST'])
-def upload_style():
-    print("received ... ")
-    if request.method == 'POST':
-        # check if the post request has the file part
-        if 'file' not in request.files:
-            flash('No file part')
-            return redirect(request.url)
-        file = request.files['file_style']
-        # if user does not select file, browser also
-        # submit an empty part without filename
-        if file.filename == '':
-            flash('No selected file')
-            return redirect(request.url)
-        if file and allowed_file(file.filename):
-            filename = secure_filename(file.filename)
-            file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-            st.get_stlyed(filename)
-            #time.sleep(20)
-            return redirect(url_for('uploaded_file',
-                                    filename=filename))
-    return render_template("home_page.html")
+
+@app.route('/getstyles')
+def get_styles():
+    im_object = im.ImageModel()
+    data = im_object.images
+    # this one works for lists
+    return json.dumps(data)
 
 
-@app.route('/uploads/<filename>')
-def uploaded_file(filename):
-    filename = "ok.jpg"
+@app.route('/result/<filename>')
+def display_result(filename):
     full_filename = os.path.join("/static/uploads/", filename)
     return render_template("display_image.html", user_image=full_filename)
-    #return render_template("display_image.html", user_image = '/Users/syang24/PycharmProjects/test1/uploads/hq.JPG')
 
 
 @app.route('/create', methods=['GET', 'POST'])
@@ -87,27 +49,16 @@ def create_own():
         if 'content' not in request.files:
             flash('No file part')
             return redirect(request.url)
-        # file = request.files.getlist('file1')
 
         file = request.files['content']
-        print("content ......: ", file)
 
         filename2 = request.form['hf']
-        print("hffff: ", filename2)
 
         if 'style22' in request.files:
             file2 = request.files['style22']
-            print("content ......: ", file2)
             filename2 = secure_filename(file2.filename)
             file2.save(os.path.join(app.config['UPLOAD_FOLDER'], filename2))
-            print("fileeeeeeeeeeeeeeeeeee: ", filename2)
 
-
-        fs = request.files
-        print(fs)
-        print(fs['content'])
-
-        print("this is the files", file)
         # if user does not select file, browser also
         # submit an empty part without filename
         if file.filename == '':
@@ -117,9 +68,8 @@ def create_own():
             filename = secure_filename(file.filename)
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
             st.get_stlyed(filename, filename2)
-            #time.sleep(20)
-            return redirect(url_for('uploaded_file',
-                                    filename=filename))
+            return redirect(url_for('display_result',
+                                    filename='ok.jpg'))
     return render_template("create_own2.html")
 
 
@@ -136,19 +86,6 @@ def test2():
     data = {"sdf": 9, "dd": 10,  "zhiming": "got it"}
     data2 = [1,2,33,44]
     return jsonify(data)
-    # this one works for lists
-    #return json.dumps(data2)
-
-
-@app.route('/getstyles')
-def get_styles():
-    im_object = im.ImageModel()
-    data = im_object.images
-    #data = {"sdf": 9, "dd": 10,  "zhiming": "got it"}
-    #data2 = [1,2,33,44]
-    #return jsonify(data)
-    # this one works for lists
-    return json.dumps(data)
 
 
 
